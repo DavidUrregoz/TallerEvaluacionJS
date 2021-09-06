@@ -4,7 +4,7 @@ class Electrodomestico{
     this.procedencia=procedencia;//Bolean true importado
     this.precio=0;
     }
-    
+
     calcularPrecio(){
         this.calcularConsumo();
         this.calcularProcedencia();
@@ -30,7 +30,9 @@ class Electrodomestico{
             case "C":
                 this.precio += 250000;
                 break;
-
+            default:
+                this.precio += 250000;
+                break;
         }
     }
 
