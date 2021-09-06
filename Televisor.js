@@ -8,8 +8,8 @@ class Televisor extends Electrodomestico{
     calcularPrecio(){
         this.calcularConsumo();
         this.calcularProcedencia();
-        this.calcularTDT();
         this.calcularTamano();
+        this.calcularTDT();  
         return this.precio;       
     }
 
@@ -18,7 +18,7 @@ class Televisor extends Electrodomestico{
             this.precio+=250000;
         }
     }
-    
+
     calcularTamano(){
         if(this.tamano > 40){
             this.precio+=this.precio*0.3;
