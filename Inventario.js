@@ -7,30 +7,18 @@ class Inventario {
             [ 10 ,12],
             [ 7 , 13 , 3]
         ]
-
-        
-        // var eletodoInv = {
-        //     bNacio : '5',
-        //     aInterNacionales : 8
-        // }
-        // var eletrodomestics = {
-        //     
-        // };
-
-        // var neveras = {
-        //     aNacionales: 10,
-        //     cInterNacionales:12
-        // };
-
-        // var televisores = {
-        //     cInterNacionales:7,
-        //     bInterNacionales:13,
-        //     aNacionales:3
-        // };
-        
-
     }
 
+    imprimirInventario(){
+        alert(
+    "Electrodomesticos de consumo B nacional "+this.objetos[0][0]+" \n"+
+    "Neveras de consumo A nacional "+this.objetos[1][0]+"\n"+
+    "Televisores de consumo C internacinales "+this.objetos[2][0]+" \n"+
+    "Televisores de consumo B internacinales "+this.objetos[2][1]+"\n"+
+    "Televisores de consumo A nacionales "+this.objetos[2][2]+"\n"+
+    "Electrodomesticos de consumo A internacionales "+this.objetos[0][1]+"\n"+
+    "7Neveras de consumo C internacinales "+this.objetos[1][1]+"\n")  
+    }
 
     quitarEletrodomestics(elconsumo,laprocedencia,cantidad){   
         if ((elconsumo == "B" ) && (laprocedencia == false)){
@@ -39,7 +27,7 @@ class Inventario {
                 console.log(cantidadActual);
                 cantidadActual-= cantidad;
                 this.objetos[0][0]=cantidadActual;
-                alert("La compra fue exitosa quedan "+ this.objetos[0][0]);
+                alert("La compra fue exitosa quedan "+ this.objetos[0][0]);                
             }
         }
         else if((elconsumo == "A") && (laprocedencia == true)){
@@ -87,7 +75,7 @@ class Inventario {
             let cantidadActual=this.objetos[2][1];
             if(cantidad <= cantidadActual){               
                 console.log(cantidadActual);
-                cantidadActual-= cantidad;
+                cantidadActual -= cantidad;
                 this.objetos[2][1]=cantidadActual;
                 alert("La compra fue exitosa quedan "+ this.objetos[2][1]);
             }

@@ -36,5 +36,9 @@ class Electrodomestico{
         }
     }
 
+    getPrecio(){
+        return this.precio;
+    }
+
 }
 

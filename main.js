@@ -17,7 +17,7 @@
 ///////
 let inventario = new Inventario();
 
-//let factura = new Factura();
+let factura = new Factura();
 
 mensajedeMenu=" Esta es nuestra oferta: \n"+
     "1 - Electrodomestico de consumo B nacional \n"+
@@ -26,7 +26,10 @@ mensajedeMenu=" Esta es nuestra oferta: \n"+
     "4 - Televisores de consumo B internacinales \n"+
     "5 - Televisores de consumo A nacionales \n"+
     "6 - Electrodomesticos de consumo A internacionales \n"+
-    "7 - Neveras de consumo C internacinales \n";
+    "7 - Neveras de consumo C internacinales \n"+
+    "8 - Imprimir factura \n" +
+    "9 - Imprimir inventario \n"+
+    "10- SALIR";
 
 function boton1(){
     let capacidad;
@@ -82,8 +85,16 @@ function boton1(){
             newNevera = new Nevera(true,"C",capacidad);
             numerodeObjetos(newNevera,"N");
             break;
+        case "8":
+            factura.mostrarFactura();
+            break;
+        case "9":
+            inventario.imprimirInventario();
+            break;
+        case"10":
+            break;
         default:
-            elecionMenu = prompt(mensajedeMenu); 
+            boton1(); 
             break;
     }  
 }     
@@ -96,13 +107,23 @@ function numerodeObjetos( obj ,tipe){
         if(compra > 0){           
             console.log(obj.consumo);
             console.log(obj.procedencia);
-            if(tipe=="E")
+            if(tipe=="E"){
                 inventario.quitarEletrodomestics(obj.consumo, obj.procedencia, compra);
-                //agregar factura
-            else if(tipe=="N")
+                //Hacer if con retorno de la funcion quitar para conformar pago
+                console.log("se llamo a agregar compra");
+                factura.agregarCompra(obj,compra);
+                boton1();
+            }
+            else if(tipe=="N"){
                 inventario.quitarNeveras(obj.consumo, obj.procedencia, compra);
-            else if(tipe == "T")
+                factura.agregarCompra(obj,compra);
+                boton1();
+            }
+            else if(tipe == "T"){
                 inventario.quitarTelevisores(obj.consumo, obj.procedencia, compra);
+                factura.agregarCompra(obj,compra);
+                boton1();
+            }
         } 
 
 }
@@ -119,8 +140,6 @@ function verTDT(entrada){
 
 }
 
-
-
 function boton2(){
-
+    inventario.imprimirInventario();
 }
