@@ -29,6 +29,7 @@ mensajedeMenu=" Esta es nuestra oferta: \n"+
     "7 - Neveras de consumo C internacinales \n";
 
 function boton1(){
+    
     document.write(mensajedeMenu);
     let elecionMenu = prompt(mensajedeMenu);  
     switch(elecionMenu){
@@ -51,7 +52,7 @@ function boton1(){
         case "7" :
             break;
         default:
-            elecion = prompt(mensajedeMenu); 
+            elecionMenu = prompt(mensajedeMenu); 
             break;
     }  
 } 
@@ -74,11 +75,12 @@ function elegirNevera(num){
     }
 
 }
-function numerodeObjetos(obj){
+function numerodeObjetos( obj ){
     console.log("INGRESO A NUMERO OBJETOS");
     let compra = prompt("el precio es de "+ obj.calcularPrecio() + " Cuantos desea comprar?");
-        if(compra > 0){
-            inventario.quitarEletrodomestics(obj.consumo, obj.procedencia, compra.valueOf);
+    compra=parseInt(compra,10);
+        if(compra > 0){           
+            inventario.quitarEletrodomestics(obj.consumo, obj.procedencia, compra);
             //agregar factura
         } 
 }
