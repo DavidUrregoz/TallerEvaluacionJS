@@ -29,61 +29,96 @@ mensajedeMenu=" Esta es nuestra oferta: \n"+
     "7 - Neveras de consumo C internacinales \n";
 
 function boton1(){
-    
+    let capacidad;
+    let tamano;
+    let tDT;
+    let newNevera;
+    let newEletro;
+    let newTele;
     document.write(mensajedeMenu);
     let elecionMenu = prompt(mensajedeMenu);  
     switch(elecionMenu){
         case "1" :
-            var newEletro = new Electrodomestico(false,"B");
-            numerodeObjetos(newEletro);
+            newEletro = new Electrodomestico(false,"B");
+            numerodeObjetos(newEletro,"E");
             break;
         case "2" :
+            capacidad = prompt("De cuanta capacidad desea la Nevera?");
+            capacidad=parseInt(capacidad);
+            newNevera = new Nevera(false,"A",capacidad);
+            numerodeObjetos(newNevera,"N");
             break;
         case "3" :
+            tamano = prompt("DE cuento tamanio Quieres el TV?");
+            tamano=parseInt(tamano);
+            tDT = prompt("Quieres el tv con tDT ?");
+            tDT = verTDT(tDT);
+            newNevera = new Televisor(true,"C",tamano,tDT);
+            numerodeObjetos(newNevera,"T");
             break;
         case "4" :
+            tamano = prompt("DE cuento tamanio Quieres el TV?");
+            tamano=parseInt(tamano);
+            tDT = prompt("Quieres el tv con tDT ?");
+            tDT = verTDT(tDT);
+            newNevera = new Televisor(true,"B",tamano,tDT);
+            numerodeObjetos(newNevera,"T");
             break;
         case "5" :
+            tamano = prompt("DE cuento tamanio Quieres el TV?");
+            tamano=parseInt(tamano);
+            tDT = prompt("Quieres el tv con tDT ?");
+            tDT = verTDT(tDT);
+            newNevera = new Televisor(false,"A",tamano,tDT);
+            numerodeObjetos(newNevera,"T");
             break;
         case "6" :
-            var newEletro = new Electrodomestico(true,"A");
-            numerodeObjetos(newEletro);
+            newEletro = new Electrodomestico(true,"A");
+            numerodeObjetos(newEletro,"E");
             break;
         case "7" :
+            capacidad = prompt("De cuanta capacidad desea la Nevera?");
+            capacidad=parseInt(capacidad);
+            newNevera = new Nevera(true,"C",capacidad);
+            numerodeObjetos(newNevera,"N");
             break;
         default:
             elecionMenu = prompt(mensajedeMenu); 
             break;
     }  
-} 
+}     
 
-    
-    //agragar a factura    
 
-function elegirNevera(num){
-    let newNevera = new Nevera();    
-    newNevera.capacidad = prompt("De cuantos litros quiere la nevera ? ");
-    if(num == 2){
-        newNevera.procedencia = false;
-        newNevera.consumo ="A";
-        numerodeObjetos(newNevera);
-        
-    }else if(num==7){
-        newNevera.procedencia = true;
-        newNevera.consumo ="C";
-        numerodeObjetos(newNevera);
-    }
-
-}
-function numerodeObjetos( obj ){
+function numerodeObjetos( obj ,tipe){
     console.log("INGRESO A NUMERO OBJETOS");
     let compra = prompt("el precio es de "+ obj.calcularPrecio() + " Cuantos desea comprar?");
     compra=parseInt(compra,10);
         if(compra > 0){           
-            inventario.quitarEletrodomestics(obj.consumo, obj.procedencia, compra);
-            //agregar factura
+            console.log(obj.consumo);
+            console.log(obj.procedencia);
+            if(tipe=="E")
+                inventario.quitarEletrodomestics(obj.consumo, obj.procedencia, compra);
+                //agregar factura
+            else if(tipe=="N")
+                inventario.quitarNeveras(obj.consumo, obj.procedencia, compra);
+            else if(tipe == "T")
+                inventario.quitarTelevisores(obj.consumo, obj.procedencia, compra);
         } 
+
 }
+
+function verTDT(entrada){
+    switch(entrada){
+        case "si":
+            return true;
+        case "no":
+            return false;
+        default:
+            return false;
+    }
+
+}
+
 
 
 function boton2(){

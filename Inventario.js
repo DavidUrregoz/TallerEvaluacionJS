@@ -33,10 +33,6 @@ class Inventario {
 
 
     quitarEletrodomestics(elconsumo,laprocedencia,cantidad){   
-              
-        // this.elconsumo=elconsumo;
-        // this.laprocedencia=laprocedencia;
-        // this.cantidad=cantidad;
         if ((elconsumo == "B" ) && (laprocedencia == false)){
             let cantidadActual=this.objetos[0][0];
             if(cantidad <= cantidadActual){               
@@ -46,7 +42,7 @@ class Inventario {
                 alert("La compra fue exitosa quedan "+ this.objetos[0][0]);
             }
         }
-        else if( (elconsumo == "A") && (laprocedencia == true)){
+        else if((elconsumo == "A") && (laprocedencia == true)){
             let cantidadActual=this.objetos[0][1];
             if(cantidad <= cantidadActual){               
                 console.log(cantidadActual);
@@ -58,7 +54,7 @@ class Inventario {
     }
 
     quitarNeveras(elconsumo,laprocedencia,cantidad){
-        if(elconsumo == "A" && laprocedencia == false){
+        if( (elconsumo == "A") && (laprocedencia == false)){
             let cantidadActual=this.objetos[1][0];
             if(cantidad <= cantidadActual){               
                 console.log(cantidadActual);
