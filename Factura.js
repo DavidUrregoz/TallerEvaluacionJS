@@ -1,16 +1,20 @@
 class Factura{
     constructor(){
         this.compras=[];
-        this.total;
+        this.total=0;
+        
     }
 
     agregarCompra(obj, cantidad){
         this.compras.push([obj,cantidad]);
+        
+        console.log(this.compras);
     }
 
     mostrarFactura(){
-        for(let i = 0;i<length.compras;i++){
-            this.total+=this.compras[i][0].getPrecio()*this.compras[i][1];
+        for(let k = 0; k < this.compras.length; k++){
+            
+            this.total += this.compras[k][0].precio * this.compras[k][1];
         }
         alert(this.total);
     }
