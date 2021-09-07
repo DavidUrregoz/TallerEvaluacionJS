@@ -1,7 +1,7 @@
 class Electrodomestico{
     constructor(procedencia,consumo){
-    this.consumo=consumo;
-    this.procedencia=procedencia;//Bolean true importado
+    this.consumo = consumo;
+    this.procedencia = procedencia;//Bolean true importado
     this.precio=0;
     }
 
@@ -38,6 +38,10 @@ class Electrodomestico{
 
     getPrecio(){
         return this.precio;
+    }
+
+    getConsumo(){
+        return this.consumo;
     }
 
 }

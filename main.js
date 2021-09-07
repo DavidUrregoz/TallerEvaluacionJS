@@ -111,17 +111,17 @@ function numerodeObjetos( obj ,tipe){
                 inventario.quitarEletrodomestics(obj.consumo, obj.procedencia, compra);
                 //Hacer if con retorno de la funcion quitar para conformar pago
                 console.log("se llamo a agregar compra");
-                factura.agregarCompra(obj,compra);
+                factura.agregarCompra(obj,compra,"E");
                 boton1();
             }
             else if(tipe=="N"){
                 inventario.quitarNeveras(obj.consumo, obj.procedencia, compra);
-                factura.agregarCompra(obj,compra);
+                factura.agregarCompra(obj,compra,"N");
                 boton1();
             }
             else if(tipe == "T"){
                 inventario.quitarTelevisores(obj.consumo, obj.procedencia, compra);
-                factura.agregarCompra(obj,compra);
+                factura.agregarCompra(obj,compra,"T");
                 boton1();
             }
         } 
